@@ -1,0 +1,49 @@
+// var express = require('express');
+// var app = express();
+// var bodyParser = require('body-parser');
+
+// app.set('num', 1);
+// var num = app.get('num');
+// console.log(num); //1
+
+// app.use(function (req, res, next) {
+//     console.log('Record timestamp');
+//     next();
+// });
+// app.use(bodyParser.json());
+
+// app.post('/calculator/rest/plus', function (req, res, next) {
+//     var body = req.body;
+//     var x = body.x;
+//      var y = body.y;
+//     var re = 0;
+//     var obj = {
+//         "x" : x,
+//         "y" : y,
+//         "re" : x+y 
+//     }
+//     res.json(obj);
+//     res.send('Hello World!' + body.a);
+// });
+
+// app.get('/help', function (req, res, next) {
+//     res.send('Help me');
+// });
+
+// app.listen(3000,function(){
+//     console.log('Start node on port 3000');
+// });
+
+import express from './config/express';
+
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.PORT = process.env.PORT || 3000;
+
+var app = express();
+
+app.listen(process.env.PORT, () => {
+       console.log('Starting node.js on port ' + process.env.PORT);
+});
+
+module.exports = app;
